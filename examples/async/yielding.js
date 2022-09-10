@@ -13,11 +13,11 @@ function* getData() {
 async function consume() {
   const set = [];
   const perf = Date.now();
-  console.log("time " + perf);
 
   for await (const j of getData()) {
     set.push(j);
   }
+
   const timeend = Date.now() - perf;
   console.log("ms " + timeend);
 }
@@ -30,6 +30,5 @@ for (let i = 0; i < 10; i++) {
   consume();
 }
 
-// (10) time 1662838293091
 // I should log soon
 // (10) ms 13109

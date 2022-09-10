@@ -12,6 +12,7 @@ function* getData() {
 function consume() {
   const set = [];
   const perf = Date.now();
+
   for (const j of getData()) {
     set.push(j);
   }

@@ -7,9 +7,11 @@
 function consume() {
   const set = [];
   const perf = Date.now();
+
   for (let i = 0; i < 1000000; i++) {
     set.push(i);
   }
+
   const timeend = Date.now() - perf;
   console.log("ms " + timeend);
 }

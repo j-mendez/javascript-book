@@ -10,9 +10,11 @@ function* getData() {
 async function consume() {
   const set = [];
   const perf = Date.now();
+
   for await (const j of getData()) {
     set.push(j);
   }
+
   const timeend = Date.now() - perf;
   console.log("ms " + timeend);
 }

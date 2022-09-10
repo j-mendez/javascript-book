@@ -10,10 +10,11 @@ function* getData() {
 async function consume() {
   const set = [];
   const perf = Date.now();
-  console.log(perf);
+
   for await (const j of getData()) {
     set.push(j);
   }
+
   const timeend = Date.now() - perf;
   console.log("ms " + timeend);
 }
@@ -31,5 +32,6 @@ for (let i = 0; i < 10; i++) {
 setTimeout(() => {
   console.log("I will log last");
 });
+
 // I should log first
 // (10) ms 12000
