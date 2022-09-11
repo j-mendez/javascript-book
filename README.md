@@ -117,9 +117,19 @@ network io, timers and even threads (heavier since the runtime is needed in each
 
 #### Node ticking tick
 
-Nodejs is a javascript runtime that uses the v8 engine. It has an event loop that can work really well with streaming and even async handling across one core making it ideal for web sockets!
+Nodejs is a javascript runtime that uses the v8 engine made using C++. It has an event loop that can work really well with streaming and even async handling across one core making it ideal for web sockets!
 
 Nodejs sends operations when it can to the system kernal to leverage multiple CPU archictures and send calls back upon completion. Take a look at the [v8 engine batching example](./examples/async/v8-engine-batching.js) that performs the operations and
 runs them across multiple cors if available.
 
-#### Deno security unlocked
+#### Deno security and IO unlocked
+
+[Deno](https://deno.land/) is a secure typescript and javascript runtime powered by v8 and made using Rust. Deno is made using Rust with hard tuned security at default that enfornces more control on what should be done, who, and how.
+Before the app startup process the program needs flags that control network io, fs, and other levels of permissions for async events directed for native events. Modules in deno can easily bridge Rust crates
+to javascript for usage across the server and browser(wasm) by using `deno_core::Extension` to register the module.
+
+[Deno](https://github.com/denoland/deno/blob/main/runtime/Cargo.toml) io super powers thanks the [`tokio`](https://tokio.rs/) runtime for the latency and speed achieved.
+
+#### Bun bun bun
+
+The bun fun on bringing the most of SafariCore to develop client and server applications. The runtime is made using the Zig lang which has a high control of the memory at play for a data structure like Rust `unsafe`.
